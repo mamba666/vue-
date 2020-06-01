@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计数器小demo</title>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div @click="des">-</div>
+    <div>{{total}}</div>
+    <div @click="inc">+</div>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        total: 3
+      },
+      methods: {
+        des: function () {
+          if (this.total <= 0) {
+            this.total = 0
+          } else {
+            this.total--
+          }
+        },
+        inc: function () {
+          if (this.total >= 10) {
+            this.total = 10
+          } else {
+            this.total++
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

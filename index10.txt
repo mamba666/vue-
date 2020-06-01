@@ -1,0 +1,17 @@
+Q
+
+1. 最基本的axios操作
+  get请求：
+    axios.get("地址")
+      .then(response=>{
+        console.log(response)
+      },err=>{
+        console.error(err)
+      })
+  post请求：
+    axios.post("地址",{key,keyVal})
+    .then(response=>{
+        console.log(response)
+      },err=>{
+        console.error(err)
+      })

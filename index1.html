@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hello</title>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>{{message}}</div>
+    <div>{{array}}</div>
+    <div>{{array[0]}}</div>
+    <div>{{array[1]}}</div>
+    <div>{{array[2]}}</div>
+    <div>{{array[3]}}</div>
+    <div>{{Object}}</div>
+    <div>{{Object.x}}</div>
+    <div>{{Object.y}}</div>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        //简单数据类型
+        message: "hello",
+        //数组
+        array: [1, 2, 3, 4],
+        //对象
+        Object: {
+          x: 1,
+          y: 2
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

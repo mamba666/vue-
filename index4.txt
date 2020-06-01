@@ -1,0 +1,26 @@
+Q
+
+1. v-on用来做什么？
+  为元素绑定事件
+
+2. 有什么常用事件？
+  click：点击
+  mouseenter：鼠标移入
+  dblclick：双击
+  mousedown：按钮被点击下去（不需要松开）
+  mouseup：按钮被点击后释放
+  mouseover：鼠标移动到目标上方
+  mouseout：鼠标从目标上方移出
+  mousemove：鼠标在目标上方移动
+
+3. 关于鼠标事件的一个小辨析
+  onmouseover、nmouseout：
+    鼠标移动到自身时候会触发事件，同时移动到其子元素身上也会触发事件
+  onmouseenter、onmouseleave：
+    鼠标移动到自身是会触发事件，但是移动到其子元素身上不会触发事件
+
+4. v-on简写？
+  @可以替换v-on:
+
+5. 事件绑定中的事件函数如何取到data中的数据？
+  在函数内部使用this指向data

@@ -1,0 +1,12 @@
+Q
+
+1. v-html和v-text有什么区别？
+  从代码可以看出来都是完全替换。
+  从语义上来讲，v-html是可以进行html解析的 ，而v-text就不行
+
+2. v-html的作用？
+  设置元素的innerHTML
+
+3. 总结
+  v-text：解析文本
+  v-html：解析html代码

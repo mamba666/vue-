@@ -1,0 +1,13 @@
+Q
+
+1. v-bind用来干嘛？
+  用来设置元素的属性，比如说src、class、title、placeholder
+
+2. v-bind是否可以简写？
+  可以，直接写一个:就可
+  v-bind:class="green" == :class="green"
+
+3. v-bind是否可以一次性绑定多个值?
+  可以这样做。见案例
+  :title="placeholder+placeholder1"
+  可以随意拼接

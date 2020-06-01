@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index6</title>
+</head>
+
+<body>
+  <div class="app">
+    <div v-if="boolean">look at me！</div>
+    <div v-if="boolean">look at me！</div>
+    <button @click="toggle">click me</button>
+  </div>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: ".app",
+      data: {
+        boolean: true
+      },
+      methods: {
+        toggle: function () {
+          if (this.boolean) {
+            this.boolean = false
+          } else {
+            this.boolean = true
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片切换小案例</title>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-show="index>0" @click="pre">left</button>
+    <img width="300px" height="210px" :src="pic[index]" alt="">
+    <button v-show="index!=pic.length-1" @click="next">right</button>
+  </div>
+
+  <script>
+    //性能版本区别于普通版的地方在于充分使用了v-show的特点
+    //即v-show本质是一个判断真假的
+    //而按钮的显示与否很容易判断出来
+    //不需要使用复杂的if逻辑！
+    let app = new Vue({
+      el: "#app",
+      data: {
+        // preIsShow: false,
+        // nextIsShow: true,
+        index: 0,
+        pic: ["./test1.png", "./test2.png", "./test3.jpg"]
+      },
+      methods: {
+        pre: function () {
+          this.index--
+          //首先做一次判断
+          //如果index=0，pre按钮就要进行隐藏
+          // if (this.index != 0) {
+          //   this.index--
+          //   if (this.index == 0) {
+          //     this.preIsShow = false
+          //   } else {
+          //     this.nextIsShow = true
+          //   }
+          // }
+        },
+        next: function () {
+          this.index++
+          //先判断是否有足够的图片进行加载
+          //由于初始化index=0，所以只要按下这个按钮，就要将pre按钮显示出来
+          // if (this.index < this.pic.length - 1) {
+          //   this.index++
+          //   this.preIsShow = true
+          //   //当到最后一张图片时，隐藏next按钮
+          //   if (this.index == this.pic.length - 1) {
+          //     this.nextIsShow = false
+          //   }
+          // }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

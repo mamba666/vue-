@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index7</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" :title="placeholder+placeholder1" v-bind:placeholder="placeholder+'xxxx'+placeholder1">
+  </div>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        placeholder: "yyyyyy",
+        placeholder1: "xxxxxxxxxxxx"
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

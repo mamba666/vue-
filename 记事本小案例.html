@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>edison's note</h1>
+    <div>
+      <input v-model="text" type="text" @keyup.enter="pushText">
+    </div>
+    <div>
+      <ol>
+        <!-- 这里有一个难点，就是不知道如何获取点击的备忘录是哪一个
+        就造成不知道删除哪一个
+        但是v-for循环的时候，可以有一个index索引参数，可以在此处获取
+        然后传入点击事件的函数中就能被获取到了 -->
+        <li v-for="(item,index) in textArr">{{item}} ------------ <span @click="clearOne(index)">x</span></li>
+      </ol>
+    </div>
+    <span>一共有条{{index}}备忘录</span>
+    <button v-show="index!=0" @click="clearAll">清空</button>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        text: "",
+        textArr: [],
+        index: 0
+      },
+      methods: {
+        pushText: function () {
+          this.textArr.push(this.text)
+          this.index++
+        },
+        clearAll: function () {
+          this.textArr = []
+          this.index = 0
+        },
+        clearOne: function (num) {
+          // splice(index,length)
+          // 用来删除特定的元素
+          this.textArr.splice(num, 1)
+          this.index--
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

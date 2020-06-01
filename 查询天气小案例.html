@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axios</title>
+  <style>
+    .defalutCity {
+      font-size: 10px;
+    }
+
+    .defalutCity span {
+      margin-right: 10px;
+    }
+  </style>
+  <!-- 引入axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- 引入vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <input v-model="city" @keyup.enter="getWeather(city)" type="text" placeholder="请输入想查询的城市">
+    <button @click="getWeather(city)">搜索</button>
+    <div class="defalutCity"><span @click="selectDefault(index)" v-for="(city,index) in defaultCity">{{city}}</span>
+    </div>
+    <div>
+      <div v-for="(data,index) in xxx">{{data}}</div>
+    </div>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        xxx: [],
+        city: "",
+        index: 0,
+        defaultCity: ["北京", "上海", "广州", "深圳"]
+      },
+      methods: {
+        getWeather: function (city) {
+          axios.get(
+              "http://wthrcdn.etouch.cn/weather_mini", {
+                params: {
+                  city
+                }
+              }
+            )
+            .then(response => {
+              this.xxx[0] = response.data.data.yesterday
+              this.xxx[1] = response.data.data.forecast[0]
+              this.xxx[2] = response.data.data.forecast[1]
+              this.xxx[3] = response.data.data.forecast[2]
+              this.xxx[4] = response.data.data.forecast[3]
+              this.xxx[5] = response.data.data.forecast[4]
+            }, err => {
+              console.error(err)
+            })
+        },
+        selectDefault: function (index) {
+          this.city = this.defaultCity[index]
+          this.getWeather(this.city)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
